@@ -81,7 +81,7 @@ class TokenRefreshSerializer(serializers.Serializer):
         except TokenError as e:
             raise serializers.ValidationError(e.args[0])
 
-        return {'access': text_type(refresh.access_token)}
+        return {'access': text_type(refresh.access_token), 'refresh': text_type(refresh)}
 
 
 class TokenRefreshSlidingSerializer(serializers.Serializer):
